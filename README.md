@@ -9,10 +9,10 @@
 
 ```powershell
 # 1. 克隆到项目根目录的 .agents/ 下
-git clone https://github.com/你的用户名/agent-toolkit.git .agents
+git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 
 # 2. 安装全局规则 + 初始化 DSP 图谱
-.\scripts\setup-agent.ps1
+.\.agents\setup.ps1
 ```
 
 ### 换电脑（已有项目）
@@ -20,7 +20,7 @@ git clone https://github.com/你的用户名/agent-toolkit.git .agents
 如果项目已经包含 `.agents/`（通过 git submodule 或直接提交），只需要恢复全局规则：
 
 ```powershell
-.\scripts\setup-agent.ps1
+.\.agents\setup.ps1
 ```
 
 ## 包含内容
