@@ -85,7 +85,7 @@ Write-Host "=================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "已安装:" -ForegroundColor White
 Write-Host "  [v] 全局规则    -> $TargetFile" -ForegroundColor White
-Write-Host "  [v] 18 个 Skills -> .agents/skills/" -ForegroundColor White
+Write-Host "  [v] 19 个 Skills -> .agents/skills/" -ForegroundColor White
 Write-Host "  [v] 计划工作流  -> .agents/workflows/plan.md" -ForegroundColor White
 
 if (Test-Path $DspDir) {

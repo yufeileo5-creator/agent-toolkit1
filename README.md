@@ -30,7 +30,7 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 |------|------|
 | `GEMINI.md` | 8 大类全局代理约束（中文交互、架构守护、TDD、审美、环境感知、调试、交付验证、文档工程） |
 
-### ⚡ 18 个 Skills
+### ⚡ 19 个 Skills
 
 #### 🏗️ 架构与规划
 | Skill | 作用 | 来源 |
@@ -46,6 +46,7 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 | [`react-best-practices`](https://agentskill.sh/skills/react-best-practices) | Vercel 58 条 React 性能规则 | Vercel Labs |
 | [`baseline-ui`](https://agentskill.sh/skills/baseline-ui) | Tailwind 动画/排版/无障碍基线 | ibelick |
 | [`canvas-design`](https://agentskill.sh/@anthropics/canvas-design) | 视觉设计哲学驱动创作 | Anthropic |
+| `interaction-completeness` | 交互完整性七维审查（五态/边界/键盘/拖放/响应式/反馈/文案） | 自定义 |
 
 #### 🧪 测试与验证
 | Skill | 作用 | 来源 |
