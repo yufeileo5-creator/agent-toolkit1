@@ -106,27 +106,9 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
     └── plan.md
 ```
 
-## 版本管理
-
-详细变更记录见 [CHANGELOG.md](CHANGELOG.md)。
+## 更新
 
 ```powershell
-# 拉取最新版（含所有 tag）
 cd .agents
-git pull origin main --tags
-
-# 查看所有可用版本
-git tag -l
-
-# 切到指定版本
-git checkout v1.2.0
-
-# 回到最新版
-git checkout main
-```
-
-### 新项目安装指定版本
-
-```powershell
-git clone --branch v1.2.0 https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
+git pull origin main
 ```
