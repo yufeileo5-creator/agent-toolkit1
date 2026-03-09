@@ -1,6 +1,6 @@
 ---
 name: code-review:review-local-changes
-description: Comprehensive review of local uncommitted changes using specialized agents with code improvement suggestions
+description: 使用六大专家代理对本地未提交变更进行全面代码审查，给出改进建议
 allowed-tools: ["Bash", "Glob", "Grep", "Read", "Task"]
 disable-model-invocation: false
 argument-hint: "[review-aspects]"

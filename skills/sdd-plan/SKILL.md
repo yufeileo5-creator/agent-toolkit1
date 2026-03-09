@@ -1,6 +1,6 @@
 ---
 name: sdd:plan
-description: Refine, parallelize, and verify a draft task specification into a fully planned implementation-ready task
+description: 将草稿任务规格细化、并行化、验证为完整的可实施计划（7 阶段 + LLM 裁判质量门控）
 argument-hint: Path to draft task file (e.g., ".specs/tasks/draft/add-validation.feature.md") [options]
 ---
 

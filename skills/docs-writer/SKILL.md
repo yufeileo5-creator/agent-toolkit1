@@ -1,8 +1,7 @@
 ---
 name: docs-writer
-description:
-  Always use this skill when the task involves writing, reviewing, or editing
-  files in the `/docs` directory or any `.md` files in the repository.
+description: >-
+  编写、审查或编辑 /docs 目录或任何 .md 文件时触发。遵循四阶段流程（标准制定 → 准备调研 → 执行写作 → 验证定稿）。
 ---
 
 # `docs-writer` skill instructions

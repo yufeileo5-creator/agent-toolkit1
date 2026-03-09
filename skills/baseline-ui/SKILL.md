@@ -1,6 +1,6 @@
 ---
 name: baseline-ui
-description: Validates animation durations, enforces typography scale, checks component accessibility, and prevents layout anti-patterns in Tailwind CSS projects. Use when building UI components, reviewing CSS utilities, styling React views, or enforcing design consistency.
+description: 校验动画时长、排版规范、组件无障碍性，防止 Tailwind CSS 布局反模式。构建 UI 组件、审查样式或统一设计规范时使用。
 ---
 
 # Baseline UI

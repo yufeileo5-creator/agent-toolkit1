@@ -1,6 +1,6 @@
 ---
 name: playwright-skill
-description: Battle-tested Playwright patterns for E2E, API, component, visual, accessibility, and security testing. Covers locators, fixtures, POM, network mocking, auth flows, debugging, CI/CD (GitHub Actions, GitLab, CircleCI, Azure, Jenkins), framework recipes (React, Next.js, Vue, Angular), and migration guides from Cypress/Selenium. TypeScript and JavaScript.
+description: 50+ 生产级 Playwright 测试模式，涵盖 E2E、API、组件、视觉、无障碍和安全测试。支持定位器、Fixtures、POM、网络拦截、鉴权流程、调试、CI/CD 及框架集成（React/Next.js/Vue/Angular），含 Cypress/Selenium 迁移指南。
 ---
 
 # Playwright Skill

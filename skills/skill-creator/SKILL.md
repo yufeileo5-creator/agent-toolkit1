@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends the agent's capabilities with specialized knowledge, workflows, or tool integrations.
+description: 创建或优化 Agent Skill 时触发。遵循标准 SKILL.md 格式，包含 description 优化、目录结构和质量验证最佳实践。
 ---
 
 # Skill Creator Guide

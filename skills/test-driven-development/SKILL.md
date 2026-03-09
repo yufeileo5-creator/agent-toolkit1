@@ -1,6 +1,6 @@
 ---
 name: test-driven-development
-description: Use when implementing any feature or bugfix, before writing implementation code
+description: 实现任何功能或修复 Bug 时，在编写业务代码前必须触发的 TDD 红绿重构铁律
 ---
 
 # Test-Driven Development (TDD)

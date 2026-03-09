@@ -1,8 +1,7 @@
 ---
 name: pr-creator
-description:
-  Use this skill when asked to create a pull request (PR). It ensures all PRs
-  follow the repository's established templates and standards.
+description: >-
+  创建 Pull Request 时触发。确保 PR 遵循仓库模板标准、包含完整描述，严禁直接推送到 main 分支。
 ---
 
 # Pull Request Creator

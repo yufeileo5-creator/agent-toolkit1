@@ -1,8 +1,7 @@
 ---
 name: docs-changelog
 description: >-
-  Generates and formats changelog files for a new release based on provided
-  version and raw changelog data.
+  根据版本号和原始变更日志数据，生成并格式化新版本的 changelog 文件。
 ---
 
 # Procedure: Updating Changelog for New Releases

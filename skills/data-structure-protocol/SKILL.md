@@ -1,11 +1,9 @@
 ---
 name: data-structure-protocol
 description: >-
-  Build and navigate DSP (Data Structure Protocol) — graph-based long-term structural memory of codebases for LLM agents.
-  Stores entities (modules, functions), their dependencies (imports), public API (shared/exports), and reasons for every connection.
-  Use when: (1) project has a .dsp/ directory, (2) user asks to set up DSP or bootstrap project structure,
-  (3) creating/modifying/deleting code files in a DSP-tracked project, (4) navigating project structure, understanding dependencies,
-  or finding modules, (5) user mentions DSP, dsp-cli, .dsp, or structure mapping.
+  构建和导航 DSP（数据结构协议）—— 基于图的代码库长期结构记忆。存储实体（模块、函数）、依赖关系、公共 API 和连接原因。
+  使用场景：(1) 项目含 .dsp/ 目录，(2) 初始化或引导项目结构，(3) 创建/修改/删除 DSP 追踪项目中的代码文件，
+  (4) 导航项目结构、理解依赖，(5) 用户提及 DSP、dsp-cli、.dsp 或结构映射。
 ---
 
 # Data Structure Protocol (DSP)
