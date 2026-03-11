@@ -37,13 +37,22 @@ if (!(Test-Path $TargetDir)) {
 
 if (Test-Path $TargetFile) {
     Write-Host "[发现] 已存在 $TargetFile" -ForegroundColor Yellow
-    $confirm = Read-Host "是否覆盖？(y/N)"
-    if ($confirm -ne "y" -and $confirm -ne "Y") {
-        Write-Host "[跳过] 保留现有的 GEMINI.md" -ForegroundColor Gray
+    Write-Host "  1. 直接覆盖 (推荐: 获取最新 Antigravity 完整规则体系)" -ForegroundColor Cyan
+    Write-Host "  2. 合并追加 (如果您的旧规则还有用，新规则将追加至文件末尾)" -ForegroundColor Cyan
+    Write-Host "  3. 跳过安装" -ForegroundColor Cyan
+    $confirm = Read-Host "请选择操作 [1/2/3]"
+    
+    if ($confirm -eq "1") {
+        Copy-Item -Path $SourceFile -Destination $TargetFile -Force
+        Write-Host "[安装] 已覆盖全局规则 -> $TargetFile" -ForegroundColor Green
+    }
+    elseif ($confirm -eq "2") {
+        $SourceContent = Get-Content $SourceFile -Raw
+        Add-Content -Path $TargetFile -Value "`n`n`n$SourceContent" -Force
+        Write-Host "[安装] 已合并追加全局规则 -> $TargetFile" -ForegroundColor Green
     }
     else {
-        Copy-Item -Path $SourceFile -Destination $TargetFile -Force
-        Write-Host "[安装] GEMINI.md -> $TargetFile" -ForegroundColor Green
+        Write-Host "[跳过] 保留现有的 GEMINI.md" -ForegroundColor Gray
     }
 }
 else {

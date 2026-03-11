@@ -56,9 +56,12 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 | [`webapp-testing`](https://agentskill.sh/@anthropics/webapp-testing) | Playwright Web 应用端到端测试 | Anthropic |
 | [`verification-before-completion`](https://agentskill.sh/skills/verification-before-completion) | 交付前强制验证 | obra/superpowers |
 
-#### 🔍 调试与审查
+#### 🔍 调试、审计与审查
 | Skill | 作用 | 来源 |
 |-------|------|------|
+| `feasibility-check` | 功能新开前的硬技术边界扫描（防天坑第一步） | 自定义 |
+| `regression-guard` | 强制回归防退化（Git Diff/导入链/视觉全系测试） | 自定义 |
+| `dead-code-sweeper` | 独立原子化的僵尸代码/冗余依赖专清任务 | 自定义 |
 | [`systematic-debugging`](https://agentskill.sh/skills/systematic-debugging) | 四阶段系统调试 | obra/superpowers |
 | [`code-review`](https://agentskill.sh/@google-gemini/code-reviewer) | 6 专家联合代码审查 | NeoLabHQ |
 
@@ -75,6 +78,8 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 | 文件 | 说明 |
 |------|------|
 | `workflows/plan.md` | 强制计划模式，修改代码前必须出方案并等用户批准 |
+| `workflows/version.md` | 使用 `/version` 触发的一键版本管理（标签、提交、推送、Changelog） |
+| `workflows/layout-engine-check.md` | 用于前端排版核心变更时的安全检查单 |
 
 ## 文件结构
 
@@ -88,13 +93,16 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 │   ├── canvas-design/        # 视觉设计创作
 │   ├── code-review/          # 代码审查
 │   ├── data-structure-protocol/  # DSP 图谱
+│   ├── dead-code-sweeper/    # 僵尸代码专清
 │   ├── docs-changelog/       # 变更日志
 │   ├── docs-writer/          # 技术文档写作
+│   ├── feasibility-check/    # 可行性与硬边界审查
 │   ├── mcp-builder/          # MCP 开发
 │   ├── pdf/                  # PDF 处理
 │   ├── playwright-skill/     # E2E 测试模式
 │   ├── pr-creator/           # PR 创建
 │   ├── react-best-practices/ # React 性能
+│   ├── regression-guard/     # 核心防退化回归守卫
 │   ├── sdd-plan/             # 规格驱动开发
 │   ├── skill-creator/        # Skill 创建
 │   ├── systematic-debugging/ # 系统调试
@@ -103,7 +111,9 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 │   ├── verification-before-completion/  # 交付验证
 │   └── webapp-testing/       # Web 应用测试
 └── workflows/
-    └── plan.md
+    ├── plan.md
+    ├── layout-engine-check.md
+    └── version.md
 ```
 
 ## 更新

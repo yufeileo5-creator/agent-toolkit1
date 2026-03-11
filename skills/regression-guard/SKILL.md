@@ -115,22 +115,21 @@ description: >-
 
 1. **运行全量测试**：
    ```bash
-   npm run test:run    # 或项目对应的测试命令
+   npm run test
    ```
-   - 确认所有测试通过
+   - 确认所有单元测试通过
    - 如有失败，**立刻停止**，回到 Step 1 重新分析
 
-2. **运行构建**：
+2. **类型与语法检查**：
    ```bash
-   npm run build       # 或项目对应的构建命令
+   npm run lint        # TypeScript 类型检查
+   npm run build       # 试运行构建，确认打包无碍
    ```
-   - 确认 TypeScript 编译无错误
-   - 确认构建产物正常
 
-3. **类型检查**：
-   ```bash
-   npx tsc --noEmit    # TypeScript 类型检查
-   ```
+3. **UI 视觉回归（🌟 前端/全栈项目必须执行）**：
+   如果变更涉及组件渲染、CSS、画布、页面布局等可视区域：
+   - 绝不能仅仅依赖命令行输出！
+   - 必须通过 `webapp-testing` 或浏览器子代理（Browser Subagent）打开本地服务进行渲染测试，截图并确认关键视图没有跑版、变形。
 
 4. **如果没有自动化测试**：
    - 手动逐一测试影响清单中的每个模块
