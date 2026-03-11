@@ -16,7 +16,7 @@ Agent 必须主动收集以下信息：
 
 ## 阶段 2：生成专属接力文档 (Generate Handoff Doc)
 
-Agent 会在 `.agents/` 目录中创建或覆盖 `handoff.md`，文档必须是**写给接手的新 AI 审阅的**（以 Prompt/Context 投喂格式为主），结构如下：
+Agent 会在 `.agents/context/` 目录中创建或覆盖 `handoff.md`（如果目录不存在则自动创建），文档必须是**写给接手的新 AI 审阅的**（以 Prompt/Context 投喂格式为主），结构如下：
 
 ```markdown
 # 🤖 Agent Context Handoff (给新接手 AI 的上下文)
@@ -48,4 +48,4 @@ Agent 会在 `.agents/` 目录中创建或覆盖 `handoff.md`，文档必须是*
 > 当前的对话历史已经变得很长。为了让我（或者新的我）保持清醒的认知和极速响应，**请现在关闭当前对话，新开一个 Chat/Composer 窗口**。
 > 
 > 在新对话里，你可以直接对我说：
-> `“请读取 .agents/handoff.md，继承上下文记忆，然后继续工作。”`
+> `"请读取 .agents/context/handoff.md，继承上下文记忆，然后继续工作。"`

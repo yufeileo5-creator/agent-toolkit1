@@ -33,6 +33,7 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 
 *   **`/plan [你的需求]`**：强制进入规格设计模式。Agent 不会立刻写代码，而是先调研、出架构方案，产出 `implementation_plan.md` 让你定夺，彻底告别“盲目生成全错代码”。
 *   **`/version`**：执行版本管理流。Agent 会扫描文件差异、让你写日志、打 Tag、推送到 GitHub，并把内容记入 `CHANGELOG.md`。
+*   **`/handoff`**：上下文交接。当对话变得很长、AI 开始变慢或产生幻觉时，发送此命令。Agent 会自动收集当前进度、未提交的代码、卡点 Bug 和特殊约定，生成一份专为「下一个 AI」设计的上下文记忆卡（`.agents/context/handoff.md`）。然后你关闭旧对话、开新窗口，发一句“请读取 `.agents/context/handoff.md`”即可满血复活。
 
 ### 2. 隐式技能自动触发 (无感守护)
 
@@ -100,6 +101,7 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 |------|------|
 | `workflows/plan.md` | 强制计划模式，修改代码前必须出方案并等用户批准 |
 | `workflows/version.md` | 使用 `/version` 触发的一键版本管理（标签、提交、推送、Changelog） |
+| `workflows/handoff.md` | 使用 `/handoff` 触发的智能上下文交接，解决长对话导致 AI 幻觉/遗忘 |
 
 ## 文件结构
 
@@ -132,7 +134,8 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 │   └── webapp-testing/       # Web 应用测试
 └── workflows/
     ├── plan.md
-    └── version.md
+    ├── version.md
+    └── handoff.md            # 上下文交接
 ```
 
 ## 更新
