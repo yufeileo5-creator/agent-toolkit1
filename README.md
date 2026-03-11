@@ -33,7 +33,6 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 
 *   **`/plan [你的需求]`**：强制进入规格设计模式。Agent 不会立刻写代码，而是先调研、出架构方案，产出 `implementation_plan.md` 让你定夺，彻底告别“盲目生成全错代码”。
 *   **`/version`**：执行版本管理流。Agent 会扫描文件差异、让你写日志、打 Tag、推送到 GitHub，并把内容记入 `CHANGELOG.md`。
-*   **`/layout-engine-check`**：当你更改了排版引擎相关文件时，要求 Agent 逐条核对核心矩阵检查单。
 
 ### 2. 隐式技能自动触发 (无感守护)
 
@@ -101,7 +100,6 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 |------|------|
 | `workflows/plan.md` | 强制计划模式，修改代码前必须出方案并等用户批准 |
 | `workflows/version.md` | 使用 `/version` 触发的一键版本管理（标签、提交、推送、Changelog） |
-| `workflows/layout-engine-check.md` | 用于前端排版核心变更时的安全检查单 |
 
 ## 文件结构
 
@@ -134,7 +132,6 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 │   └── webapp-testing/       # Web 应用测试
 └── workflows/
     ├── plan.md
-    ├── layout-engine-check.md
     └── version.md
 ```
 
