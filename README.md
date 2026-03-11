@@ -23,6 +23,28 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 .\.agents\setup.ps1
 ```
 
+## 使用指南 (Usage)
+
+安装完毕后，你可以通过以下两种方式使用 Antigravity Toolkit：
+
+### 1. 显式工作流触发 (斜杠指令)
+
+在聊天框中直接输入以下指令（带斜杠）触发结构化任务：
+
+*   **`/plan [你的需求]`**：强制进入规格设计模式。Agent 不会立刻写代码，而是先调研、出架构方案，产出 `implementation_plan.md` 让你定夺，彻底告别“盲目生成全错代码”。
+*   **`/version`**：执行版本管理流。Agent 会扫描文件差异、让你写日志、打 Tag、推送到 GitHub，并把内容记入 `CHANGELOG.md`。
+*   **`/layout-engine-check`**：当你更改了排版引擎相关文件时，要求 Agent 逐条核对核心矩阵检查单。
+
+### 2. 隐式技能自动触发 (无感守护)
+
+我们植入了全局规则，Agent 感知到特定场景时会自动调用对应的 Skill，**你不需要输入任何特殊命令**：
+
+*   💡 **新功能可行性拦截 (`feasibility-check`)**：当你提出离谱需求（比如让网页静默录音、访问非授权本地文件），Agent 连代码都不会写，直接亮出 🔴 红灯并给出 B 计划替代方案。
+*   🛡️ **防功能退化守卫 (`regression-guard`)**：当你在修改或重构老代码时，Agent 除了改代码，还会强制执行“变更规模分析 -> DSP 图谱依赖查证 -> 回归测试执行”，绝不让你修一个 Bug 引入三个新 Bug。
+*   🗑️ **僵尸代码专清 (`dead-code-sweeper`)**：当你输入“扫描没用的代码”，Agent 会启动专门的安全切除流程，不会和其他重构混在一起，防误杀。
+*   💅 **前端像素级打磨 (`interaction-completeness`)**：写完页面后，Agent 会顺带把 空态、加载态、错误态、悬停态 给你写齐，不会只管一个正常态就交差。
+*   🧪 **测试驱动铁律 (`test-driven-development`)**：修核心逻辑前，你会发现 Agent 坚持非要先写出一段会跑错的 Test，然后再去修你指派的文件。
+
 ## 包含内容
 
 ### 📐 全局规则
