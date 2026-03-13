@@ -82,7 +82,10 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 ### 🔄 工作流
 | 文件 | 说明 |
 |------|------|
-| `workflows/plan.md` | 强制计划模式，修改代码前必须出方案并等用户批准 |
+| `workflows/plan.md` | 计划模式工作流 — 强制在执行代码修改前完成方案审批与架构合规检查 |
+| `workflows/version.md` | 版本管理工作流 — 提交代码、打版本标签、推送到 GitHub，支持快速回退 |
+| `workflows/handoff.md` | 上下文交接工作流 — 当对话历史过长、性能下降时，自动生成交接文档 |
+| `workflows/layout-engine-check.md` | 排版引擎检查工具 — 排版引擎核心文件变更时的准入检查清单 |
 
 ## 文件结构
 
@@ -111,7 +114,10 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 │   ├── verification-before-completion/  # 交付验证
 │   └── webapp-testing/       # Web 应用测试
 └── workflows/
-    └── plan.md
+    ├── handoff.md            # 上下文交接
+    ├── layout-engine-check.md # 排版引擎检查
+    ├── plan.md               # 计划模式
+    └── version.md            # 版本管理
 ```
 
 ## 更新
