@@ -80,12 +80,15 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 | [`skill-creator`](https://agentskill.sh/@google-gemini/skill-creator) | Agent Skill 创建与优化指南 | Google Gemini |
 
 ### 🔄 工作流
-| 文件 | 说明 |
+
+**使用方法**：在对话框中直接输入 `/[工作流名称]`（例如 `/plan` 或 `/handoff`）即可触发对应的工作流。工作流由 `.agents/workflows/` 目录下的 Markdown 文件定义。
+
+| 命令 | 说明 |
 |------|------|
-| `workflows/plan.md` | 计划模式工作流 — 强制在执行代码修改前完成方案审批与架构合规检查 |
-| `workflows/version.md` | 版本管理工作流 — 提交代码、打版本标签、推送到 GitHub，支持快速回退 |
-| `workflows/handoff.md` | 上下文交接工作流 — 当对话历史过长、性能下降时，自动生成交接文档 |
-| `workflows/layout-engine-check.md` | 排版引擎检查工具 — 排版引擎核心文件变更时的准入检查清单 |
+| `/plan` | 计划模式工作流 — 强制在执行代码修改前完成方案审批与架构合规检查 |
+| `/version` | 版本管理工作流 — 提交代码、打版本标签、推送到 GitHub，支持快速回退 |
+| `/handoff` | 上下文交接工作流 — 当对话历史过长、性能下降时，自动生成交接文档 |
+| `/layout-engine-check` | 排版引擎检查工具 — 排版引擎核心文件变更时的准入检查清单 |
 
 ## 文件结构
 
