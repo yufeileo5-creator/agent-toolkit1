@@ -30,9 +30,17 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 |------|------|
 | `GEMINI.md` | 8 大类全局代理约束（中文交互、架构守护、TDD、审美、环境感知、调试、交付验证、文档工程） |
 
-### ⚡ 19 个 Skills
+### ⚡ 70+ 个 Skills
 
-#### 🏗️ 架构与规划
+#### 👔 产品经理 (PM Skills)
+| Skill | 作用 | 来源 |
+|-------|------|------|
+| [`pm-create-prd`](https://github.com/phuryn/pm-skills) | 按标准模板撰写完整的产品需求文档 (PRD) | phuryn/pm-skills |
+| [`pm-competitive-battlecard`](https://github.com/phuryn/pm-skills) | 竞品战斗卡分析（优势、弱势、差异化） | phuryn/pm-skills |
+| [`pm-user-stories`](https://github.com/phuryn/pm-skills) | 根据 3C 和 INVEST 原则编写用户故事 | phuryn/pm-skills |
+| [`pm-sprint-plan`](https://github.com/phuryn/pm-skills) | 敏捷冲刺迭代计划与估算 | phuryn/pm-skills |
+| [`pm-ab-test-analysis`](https://github.com/phuryn/pm-skills) | A/B 测试数据分析与置信度评估 | phuryn/pm-skills |
+| `pm-* (50+个)` | 包含增长模型、定价策略、访谈大纲等共 50 余个 PM 专业技能 | phuryn/pm-skills |#### 🏗️ 架构与规划
 | Skill | 作用 | 来源 |
 |-------|------|------|
 | [`sdd-plan`](https://agentskill.sh/skills/sdd-plan) | 规格驱动开发，7 阶段 + LLM 裁判 | NeoLabHQ |
@@ -90,7 +98,7 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git .agents
 │   ├── data-structure-protocol/  # DSP 图谱
 │   ├── docs-changelog/       # 变更日志
 │   ├── docs-writer/          # 技术文档写作
-│   ├── mcp-builder/          # MCP 开发
+│   ├── pm-*/                 # 50+ 个 PM 产品经理专业技能 (PRD/竞品/敏捷等)
 │   ├── pdf/                  # PDF 处理
 │   ├── playwright-skill/     # E2E 测试模式
 │   ├── pr-creator/           # PR 创建
