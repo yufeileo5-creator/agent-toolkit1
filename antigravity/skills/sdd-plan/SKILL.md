@@ -1163,6 +1163,27 @@ Task status is managed by folder location:
 - `in-progress/` - Tasks currently being worked on
 - `done/` - Completed tasks
 
+### Plan 持久化同步（强制）
+
+> [!IMPORTANT]
+> Plan 审批通过后必须立刻同步到项目级 `PLANS.md`，不能依赖 `/handoff` 工作流（用户可能不触发 handoff）。
+> 这是 Implementation Plan 的**主沉淀时机**，`/handoff` 工作流中的 §1.2.1 仅作为兜底安全网。
+
+完成所有阶段后，在用户审核 Plan 之前：
+
+1. **检查项目根目录是否存在 `PLANS.md`**（如不存在则跳过此步骤）
+2. **将 Plan 精华同步到 `PLANS.md`「当前活跃计划」**，格式如下：
+   ```markdown
+   ### [Plan 标题]
+   - **状态**: 🟡 待实施
+   - **核心思路**: [一句话总结]
+   - **核心文件变更**: [前 5 项文件路径]
+   - **关键决策**: [最重要的 2-3 个设计决策]
+   - **否决方案**: [被否决的主要替代方案]
+   ```
+3. **精华不超过 15 行**，保留核心决策和否决方案，省略实施步骤细节（那些在 task file 中完整保留）
+4. **严禁在 `PLANS.md` 中写「参见对话 artifact xxx」** — 必须将内容内联
+
 ### Next Steps
 
 1. Review task: `.specs/tasks/todo/<filename>`
