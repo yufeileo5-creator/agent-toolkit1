@@ -1,0 +1,14 @@
+{
+    "title": "Antigravity Auto Accept Extension Analysis",
+    "summary": "Security and functional review of the Antigravity Auto Accept extension. Analyzes its use of Chrome DevTools Protocol (CDP) for automation, the security implications of opening remote debugging ports, and general privacy considerations based on public documentation and source code repository.",
+    "references": [
+        {
+            "type": "url",
+            "value": "https://open-vsx.org/extension/pesosz/antigravity-auto-accept"
+        },
+        {
+            "type": "url",
+            "value": "https://github.com/pesoszpesosz/antigravity-auto-accept"
+        }
+    ]
+}

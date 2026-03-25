@@ -1,0 +1,40 @@
+// ─── 插件测试模板 ───
+// 使用方式：复制此模板到 src/plugins/{plugin-id}/__tests__/index.test.ts
+
+import { describe, it, expect } from 'vitest';
+import plugin from '../index';
+import { createHookRegistry } from '@/core/hook-registry';
+import { createCommandBus } from '@/core/command-bus';
+import { createSlotManager } from '@/core/slot-manager';
+import { createHealthMonitor } from '@/core/health-monitor';
+import type { PluginContext } from '@/core/types';
+
+function createTestContext(): PluginContext {
+  return {
+    hooks: createHookRegistry(),
+    commands: createCommandBus(),
+    slots: createSlotManager(),
+    health: createHealthMonitor(),
+  };
+}
+
+describe('{{PLUGIN_NAME}}', () => {
+  it('manifest 应包含正确的元信息', () => {
+    expect(plugin.manifest.id).toBe('{{PLUGIN_ID}}');
+    expect(plugin.manifest.scope).toBe('{{PLUGIN_SCOPE}}');
+  });
+
+  it('激活后应上报健康状态', () => {
+    const ctx = createTestContext();
+    plugin.activate(ctx);
+
+    const health = ctx.health.getHealth('{{PLUGIN_ID}}');
+    expect(health?.status).toBe('healthy');
+  });
+
+  it('卸载不应抛出错误', () => {
+    expect(() => plugin.deactivate()).not.toThrow();
+  });
+
+  // TODO: 添加更多测试用例
+});

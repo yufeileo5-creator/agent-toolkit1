@@ -1,0 +1,14 @@
+// ─── 插件清单模板 ───
+// 使用方式：复制此模板到 src/plugins/{plugin-id}/manifest.ts
+
+import type { PluginManifest } from '@/core/types';
+
+const manifest: PluginManifest = {
+  id: '{{PLUGIN_ID}}',
+  name: '{{PLUGIN_NAME}}',
+  version: '1.0.0',
+  scope: '{{PLUGIN_SCOPE}}', // 'shared' | 'ui-app' | 'poster' | 'briefing' | 'wechat-article'
+  description: '{{PLUGIN_DESCRIPTION}}',
+};
+
+export default manifest;

@@ -1,0 +1,86 @@
+{
+    "title": "Genesis AI Image Design System (指哪生哪图) Architecture",
+    "summary": "Comprehensive overview of the Genesis AI Image Design System (Briefing Studio). Key technical features include robust React state management (solving async stale closures and state overwrites), and high-performance browser-native DOCX image extraction utilizing FileReader and manual Buffer polyfills for Mammoth.js compatibility. The AI generation pipeline implements strict structural constraints through dimension-aware prompts and imageCount synchronization to ensure aesthetic stability. Reliability is enhanced by removing client-side timeouts for complex LLM tasks and implementing distinctive schema descriptions to prevent content duplication across multiple text blocks. UI refinements include self-correcting auto-font-sizing that preserves manual user adjustments and a full-canvas blurry loading mask during generation.",
+    "references": [
+        {
+            "type": "file",
+            "value": "App.tsx"
+        },
+        {
+            "type": "file",
+            "value": "types.ts"
+        },
+        {
+            "type": "file",
+            "value": "services/geminiService.ts"
+        },
+        {
+            "type": "file",
+            "value": "services/mcpService.ts"
+        },
+        {
+            "type": "file",
+            "value": "package.json"
+        },
+        {
+            "type": "file",
+            "value": "domain/validators/briefingValidator.ts"
+        },
+        {
+            "type": "file",
+            "value": "features/briefing/components/GenerationPanel.tsx"
+        },
+        {
+            "type": "file",
+            "value": "artifacts/implementation/text_rendering_optimizations.md"
+        },
+        {
+            "type": "file",
+            "value": "artifacts/implementation/ai_data_schemas_and_validation.md"
+        },
+        {
+            "type": "file",
+            "value": "artifacts/implementation/layout_system_design.md"
+        },
+        {
+            "type": "file",
+            "value": "metadata.json"
+        },
+        {
+            "type": "conversation_id",
+            "value": "893540ce-55c9-4626-8968-07e8a914041d"
+        },
+        {
+            "type": "conversation_id",
+            "value": "af293688-8542-4805-a5df-ddcc47e39dc3"
+        },
+        {
+            "type": "conversation_id",
+            "value": "a9b8350e-f48a-4a9e-a541-fcf22bb4db61"
+        },
+        {
+            "type": "conversation_id",
+            "value": "91666eba-6241-4b1c-8e9b-de8a9e6958a3"
+        },
+        {
+            "type": "file",
+            "value": "features/briefing/components/blocks/TextBlock.tsx"
+        },
+        {
+            "type": "file",
+            "value": "features/briefing/components/blocks/SectionHeaderBlock.tsx"
+        },
+        {
+            "type": "file",
+            "value": "artifacts/implementation/prompt_engineering.md"
+        },
+        {
+            "type": "file",
+            "value": "services/aiLayoutService.ts"
+        },
+        {
+            "type": "file",
+            "value": "infrastructure/api/gemini/GeminiClient.ts"
+        }
+    ]
+}
