@@ -27,7 +27,11 @@ description: >-
 - 仔细阅读需求。如有歧义或信息缺失，立即提问，绝不主观假设。
 - **强制第一步：** 查阅现有 Knowledge Items (KIs) 及历史文档摘要，严禁在未检查历史决策的情况下从零开始分析。
 - 检查根目录是否存在 `ARCHITECTURE.md`。若缺失，必须在回复中主动提议生成。
-- 阅读现有 `ARCHITECTURE.md`、`README.md` 及相关设计文档，确保理解当前项目的架构分层和设计决策。
+- **Harness 底座检查（强制）：** 检查项目根目录是否存在以下文件，若缺失则**必须先创建再继续规划**：
+  - `AGENTS.md` — 项目级上下文导航（参考 GEMINI.md §10 的 10 项必备内容）
+  - `.golden-rules/` — 项目级黄金准则目录（至少包含 architecture/code-quality/documentation/error-hints 四个文件）
+  - `PLANS.md` — 持久化设计文档模板
+- 阅读现有 `AGENTS.md`（如已存在）、`ARCHITECTURE.md`、`README.md` 及相关设计文档，确保理解当前项目的架构分层和设计决策。
 - **交接资产强校验**：强制检索以下文件（如果存在），建立对当前 WIP 状态和刚性约束的认知：
   - `docs/handoff.md`（由 `/handoff` 工作流产生的交接文档）
   - `docs/adr/` 目录下的**所有** ADR 文件
