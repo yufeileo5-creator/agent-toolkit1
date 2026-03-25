@@ -1,9 +1,5 @@
 ## 🤖 Antigravity 全局代理规则 (Global Agent Rules)
 
-> **版本**: v5 | **更新时间**: 2026-03-25 | **更新原因**: Harness Engineering 全面落地
-> **主要变更**: 新增 harness-gc/agent-eval 技能引用、渐进式规则路由（§10）
-> **前置版本**: `_versions/GEMINI_20260325_v1_Harness落地前.md`
-
 ---
 
 ### 1. 语言与交互 (Language & Communication)
@@ -40,7 +36,6 @@
 * **破坏性变更预警：** 删改导出 API、数据库字段、环境变量时，必须**显式标注** `⚠️ BREAKING CHANGE` 并等待确认。
 * **回归守卫 (regression-guard)：** 修改已有代码或添加新功能时，必须触发 `regression-guard` 技能，通过 git diff 变更分析、DSP 依赖链推导和测试验证三层机制，防止新功能破坏旧功能。
 * **僵尸代码专清 (dead-code-sweeper) [★新增]：** 严禁在开发新功能中"顺便"删除看似无用的代码。处理死代码必须作为独立任务，触发 `dead-code-sweeper` 技能，严格走"扫描侦查 -> 计划审批 -> 原子化切除 -> 架构同步"四阶段流程。
-* **Harness 巡检 (harness-gc) [★新增]：** 定期或在连续开发 3+ 个功能后，触发 `harness-gc` 技能，对代码库执行四维扫描（文档漂移、DSP 图谱一致性、死代码、代码质量），用 `.golden-rules/` 黄金准则作为判定标准输出健康报告。
 
 ---
 
@@ -75,7 +70,6 @@
 * **Web 应用测试 (webapp-testing)：** 验证前端功能或调试 UI 行为时，触发 `webapp-testing` 技能，通过 Playwright 编写自动化测试脚本进行端到端验证。
 * **本地代码审查 (code-review)：** 重要的阶段完成前，触发六大虚拟特工（Bug 猎手/安全审计/代码质量/等）对未提交的变更进行联合巡察，评分并列出确切修复意见再交付结果给用户。
 * **PR 创建规范 (pr-creator)：** 创建 Pull Request 时，必须触发 `pr-creator` 技能，确保 PR 遵循仓库模板标准、包含完整描述、使用 Conventional Commits 格式，且严禁直接推送到 `main` 分支。
-* **Agent 质量评估 (agent-eval) [★新增]：** 在重大功能完成或对话交接前，触发 `agent-eval` 技能，从四个维度（指令遵循率、首次通过率、架构合规率、文档同步率）量化评估 Agent 表现，识别 Harness 薄弱环节并驱动持续改进。评分低于 60% 时强制触发自修复流程。
 * **决策沉淀 (ADR) [★强制]：** 对于核心 API 变更、新依赖引入、重大技术方案定型，**必须强制**在 `docs/adr/` 创建 ADR 记录（记录选型原因和否决方案）。严禁将关键决策仅停留在对话记忆中，必须作为项目长期遗产落地。ADR 一旦状态为「已采纳」，**严禁直接修改原文**；如需推翻或演进，必须新建递增编号的 ADR 并在旧 ADR 中标注 `状态: 已取代 → 参见 ADR-XXXX`。
 
 ---
@@ -104,25 +98,3 @@
 * **对话深度感知：** 当对话轮次超过 **20 轮** 且持续涉及代码修改时，主动**建议**用户考虑使用 `/handoff` 工作流开启新对话并完成上下文交接，但最终由用户决定是否执行。
 * **风险告知义务：** 当感知到需要大量回顾之前的修改记录、或上下文中累积了大量代码变更时，必须**如实告知**用户当前存在的质量风险（如遗漏细节、推理精度下降），提供拆分建议，但**严禁**擅自做出"停止工作"或"拒绝继续"的决定。
 * **跨对话对齐校验 [★新增]：** 在新开启的对话中，当被要求读取 `handoff.md` 或 `docs/adr/` 等过往架构文档以继承上下文时，AI **在执行任何代码修改或写操作前**，必须主动向用户复述自己对当前设计方案、关键刚性约束和已被否决方案的理解。得到用户显式确认"已对齐"后，方可正式动手编写代码。
-
----
-
-### 10. Harness Engineering 渐进式规则路由 [★新增]
-
-> 本章节帮助 Agent 根据任务类型聚焦最相关的规则，避免注意力稀释。
-
-* **任务类型路由：** Agent 应根据当前任务类型优先加载对应的规则章节和技能：
-  - 🆕 新功能开发 → §2 架构守护 + §3 TDD + `sdd:plan`, `plugin-dev`, `feasibility-check`
-  - 🐛 Bug 修复 → §6 调试 + §7 验证 + `systematic-debugging`, `verification-before-completion`
-  - 🔧 重构 → §2 + §3 + §7 + `regression-guard`, `code-review`
-  - 🎨 前端 UI → §4 前端标准 + `baseline-ui`, `taste-skill`, `interaction-completeness`
-  - 📝 文档更新 → §8 文档工程 + `docs-writer`, `docs-changelog`
-  - 🧹 维护巡检 → §7 + §8 + `harness-gc`, `dead-code-sweeper`, `agent-eval`
-  - 🔄 上下文交接 → §9 窗口守护 + `/handoff` 工作流
-* **始终生效铁律（5 条，不可跳过）：**
-  1. 强制中文（§1）
-  2. 禁止占位符（§1）
-  3. AGENTS.md 优先 — 进入项目先读 AGENTS.md（§2）
-  4. 分层约束 — 严禁反向依赖（§2）
-  5. 验证后交付 — 证据优先于断言（§7）
-* **黄金准则路由：** 项目级 `.golden-rules/` 目录中的准则文件按场景加载：`architecture.golden.md`（修改 import）、`code-quality.golden.md`（每次代码修改）、`documentation.golden.md`（功能完成后）、`sandbox-security.golden.md`（文件操作/API）、`error-hints.golden.md`（遇到已知错误）。
