@@ -24,12 +24,16 @@ git diff --stat
 ```
 - 向用户展示改动了哪些文件
 
-### 3. 暂存所有更改
+### 3. 前置防御：防模板漂移检查 (Template Drift Check)
+- 强制检查当前项目的 `AGENTS.md` 或 `.golden-rules/` 目录是否在本次开发中有了新的沉淀。
+- 如果有更新，Agent 必须主动提醒用户（或代劳）：将其同步复制到全局母版库 `~/.gemini/antigravity/templates/` 中，并在 `.gemini` 仓库触发一次单独的 Push。
+
+### 4. 暂存所有更改
 ```bash
 git add -A
 ```
 
-### 4. 生成提交信息
+### 5. 生成提交信息
 根据改动内容，使用 **Conventional Commits** 格式生成中文提交信息：
 - `feat: 新增xxx功能` — 新功能
 - `fix: 修复xxx问题` — Bug修复
@@ -41,12 +45,12 @@ git add -A
 
 提交信息必须清晰描述改动内容，方便用户未来查阅。
 
-### 5. 提交代码
+### 6. 提交代码
 ```bash
 git commit -m "<type>: <中文描述>"
 ```
 
-### 6. 询问用户是否需要打版本标签
+### 7. 询问用户是否需要打版本标签
 向用户确认：
 - **是否需要打版本标签？**（适用于重要节点/里程碑）
 - 如果需要，查看当前最新标签来建议下一个版本号：
@@ -56,18 +60,18 @@ git tag --sort=-v:refname | Select-Object -First 5
 - 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)：
   - `vX.Y.Z`，其中 X=重大/破坏性变更, Y=新功能, Z=Bug修复/小改进
 
-### 7. 打标签（如果用户需要）
+### 8. 打标签（如果用户需要）
 ```bash
 git tag -a vX.Y.Z -m "版本说明：xxx"
 ```
 
-### 8. 推送到 GitHub
+### 9. 推送到 GitHub
 ```bash
 git push origin main
 git push origin --tags
 ```
 
-### 9. 更新 CHANGELOG.md
+### 10. 更新 CHANGELOG.md
 按照 [Keep a Changelog](https://keepachangelog.com/) 格式更新 `CHANGELOG.md`：
 ```markdown
 ## [vX.Y.Z] - YYYY-MM-DD
@@ -81,7 +85,7 @@ git push origin --tags
 - 具体变更内容
 ```
 
-### 10. 提交 CHANGELOG 更新
+### 11. 提交 CHANGELOG 更新
 ```bash
 git add CHANGELOG.md && git commit -m "docs: 更新 CHANGELOG" && git push origin main
 ```
