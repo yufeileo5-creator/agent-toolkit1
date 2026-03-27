@@ -113,6 +113,7 @@ Types → Config → Core → Plugin → UI
 - **插件间通信**: 只能通过 `CommandBus`（命令）或 `HookRegistry`（钩子）
 - **DSP 图谱**: `.dsp/graph.json` 是分层依赖的机器可读真相源
 - **黄金准则**: `.golden-rules/architecture.golden.md` 包含可检查的具体规则
+- **知识溯源铁律**: 当调用非标准库（如特定版本的 Fabric.js、复杂图形库等）出现类型缺失或执行异常时，绝对禁止凭空猜测或降级为 Any 类型。必须立刻挂起并强制要求人类提供官方文档片段，或启用检索工具抓取源码定义后方可下笔。
 
 ## 8. Done 定义
 
@@ -127,6 +128,7 @@ Types → Config → Core → Plugin → UI
 - [ ] `.dsp/graph.json` 已同步（如涉及模块新增/删除/依赖变更）
 - [ ] DSP 黄金准则检查通过
 - [ ] **流水线排异 (CI/CD Verification)**: 若有远端门禁，提 PR 前必须查阅线上的 GitHub Actions/GitLab CI 报错日志确认绿灯（不只满足于本地 `npm run run test` 通过）。
+- [ ] **视觉盲区验收 (Visual Handoff)**: 针对界面或样式（CSS/UI Component）的改动，测试通过不代表完成。Agent 必须主动暂停任务，要求人类开发者进行走查（Visual Regression），得到人类明确的验收许可后方可将该切片任务记为已完成。
 
 ## 9. 安全注意事项
 
