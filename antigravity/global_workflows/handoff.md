@@ -43,8 +43,9 @@ Agent 必须主动收集以下信息：
    - 若 `PLANS.md` 的描述已过时 → 直接更新为本期工作的实际状态
    - 若本期工作完全未在 `PLANS.md` 中体现 → 补写对应条目（已完成 ✅ 或进行中 🟡）
 
-### 1.3 质量纪律状态
+### 1.3 质量与防漂移纪律
 - **强制**执行一次测试命令（`npx vitest run`、`npm test` 或项目约定的测试命令），准确记录通过率、失败用例和 Warning。
+- 检查是否存在 **模板漂移 (Template Drift)**：回顾本期产出，若在 `AGENTS.md` 或 `.golden-rules` 增加了高价值约束，请主动在交接单建议覆盖至 `~\.gemini\antigravity\templates\` 母版库。
 - 如有 lint 工具，执行 `npm run lint` 并记录输出。
 - 记录结果到交接文档的「质量与架构防线」段落中。
 
