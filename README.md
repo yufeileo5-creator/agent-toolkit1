@@ -1,4 +1,4 @@
-# 🤖 Agent Toolkit
+# 🤖 Agent Toolkit v6.0 (T0 Architecture)
 
 > AI Agent 的全局配置、技能和工作流集合。  
 > 基于 **OpenAI Harness Engineering** 范式构建，让 AI 不靠自觉，靠体系。
@@ -49,6 +49,7 @@
 ├── _versions/                          # GEMINI.md 历史版本归档
 │
 └── antigravity/
+    ├── templates/                      # 🏗️ T0 核心母版库 (含 AGENTS.md/PLANS.md)
     ├── skills/                         # ⚡ 93 个技能
     │   ├── harness-gc/                 #   代码库四维巡检
     │   ├── agent-eval/                 #   Agent 质量评估
@@ -175,8 +176,8 @@
 | §6 调试 | 严禁盲目重试、系统化四阶段诊断 |
 | §7 验证交付 | 证据优先于断言、Agent 质量评估、ADR |
 | §8 文档工程 | README/CHANGELOG/ADR/版本保护 |
-| §9 上下文守护 | 文件数预警、对话深度感知、跨对话校验 |
-| §10 规则路由 | 按任务类型加载规则、5 条始终生效铁律 |
+| §9 上下文守护 | 里程碑交接法、跨对话对齐与重建 (Session Hydration) |
+| §10 规则路由 | 按任务类型加载规则、环境自举 (Auto-Scaffold) |
 
 ---
 
@@ -211,7 +212,8 @@ git clone https://github.com/yufeileo5-creator/agent-toolkit1.git ~/.gemini
 ## 📜 版本历史
 
 | 版本 | 日期 | 变更 |
-|------|------|------|
+| ------ | ---------- | ------------------------------------------------------------ |
+| v6 | 2026-03-27 | T0 架构完全体：+ Session Hydration（存在感重建）、+ Auto-Scaffold（环境自举）、+ Non-Interactive CLI 防卡死、+ Revert 熔断机制 |
 | v5 | 2026-03-25 | Harness Engineering 全面落地：+harness-gc、+agent-eval、+§10 渐进披露 |
 | v4 | 2026-03-20 | 跨对话连续性加固 |
 | v3 | 2026-03-19 | 追加插件化全局底座规则 |
