@@ -32,6 +32,7 @@ description: >-
   - `.golden-rules/` — 项目级黄金准则目录（至少包含 architecture/code-quality/documentation/error-hints 四个文件）
   - `PLANS.md` — 持久化设计文档模板
 - 阅读现有 `AGENTS.md`（如已存在）、`ARCHITECTURE.md`、`README.md` 及相关设计文档，确保理解当前项目的架构分层和设计决策。
+- **离线知识归维 (Local RAG)**: 当需求涉及复杂第三方框架时，强制先搜索 `docs/knowledge/` 下的官方快照，绝对禁止主观幻觉捏造 API。
 - **交接资产强校验**：强制检索以下文件（如果存在），建立对当前 WIP 状态和刚性约束的认知：
   - `docs/handoff.md`（由 `/handoff` 工作流产生的交接文档）
   - `docs/adr/` 目录下的**所有** ADR 文件
@@ -71,9 +72,12 @@ description: >-
 
 ### 5. 纪律性编码
 获得批准后，按 `task.md` 的步骤严格执行。在编写任何代码时遵循：
+- **测试证伪原则 (Test-Fail-First)**: 如果需求涉及测试，在宣称测通前，必须先在终端里造出一个明确被写红（Fail）的报错日志作为证伪基础。
 - **完整性**：所有修改必须是完整可运行代码，严禁使用 `// ... existing code` 占位符。
 - **类型与防御**：强制使用显式类型定义（如 TypeScript `interface`），禁用 `any`；所有外部输入必须校验。
 - **模块化底线**：核心逻辑函数 ≤ 40行，常规文件 ≤ 300行。超出必须拆分。
+- **Mock 隔离法则 (Fixture Isolation)**: 超过 15 行的测试补丁或巨型 JSON 必须抽离至外部 `__fixtures__/` 目录，严禁污染业务上下文。
+- **微粒度存档 (Micro-Commits)**: 每完成 `task.md` 的一个原子的 `[x]` 并编译通过后，必须主动执行 `git commit -m "WIP: xxx"`，为随时可能的回滚熔断提供时空锚点。
 - 每完成一步逻辑闭环，向系统同步当前进度与下一步意图。
 
 ---
@@ -83,7 +87,7 @@ description: >-
 ### 6. 交付基线审查
 - 代码修改完成后，必须**主动**在后台执行项目的验证命令（如 `npm run lint`, `tsc` 等）。
 - 确认没有引发任何新的语法报错或类型检查失败。
-- 若有测试套件，执行相关测试验证回归防护。
+- 若有测试套件，执行相关测试验证回归防护。**注意 (Log Truncation Guard)**：执行极易产生巨量输出的测试命令时，严禁裸读终端！必须重定向输出至临时文件（如 `> /tmp/test.log 2>&1`）并提炼提取堆栈，防止上下文雪崩。
 
 ### 7. 闭环记录与总结 (`walkthrough.md`)
 - 在 artifact 目录下创建/更新 `walkthrough.md`。
