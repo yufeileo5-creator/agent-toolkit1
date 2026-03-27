@@ -157,17 +157,17 @@ Types → Config → Core → Plugin → UI
 | 层级 | 路径 | 数量 | 加载时机 |
 |------|------|------|---------|
 | **Tier 1** | `C:\Users\Leo\.gemini\antigravity\skills\` | 7 | 每轮系统自动加载 |
-| **Tier 2** | `C:\Users\Leo\.gemini\antigravity\skills\_on-demand\` | 13 | 特定任务时按需主动读取 |
+| **Tier 2** | `C:\Users\Leo\.gemini\antigravity\skills\_on-demand\` | 16 | 特定任务时按需主动读取 |
 | **Tier 3** | `C:\Users\Leo\.gemini\antigravity\skills\_archived\` | 11 | 需要时手动恢复 |
 
 ### 任务类型 → 核心规则映射
 
 | 任务类型 | 必须优先加载的规则章节 | 按需加载的技能 |
 |---------|---------------------|--------------|
-| 🆕 新功能开发 | §2 架构守护 + §3 TDD | `sdd:plan`, `plugin-dev`, `feasibility-check` |
+| 🆕 新功能开发 | §2 架构守护 + §3 TDD | `sdd:plan`, `plugin-dev`, `feasibility-check`, `minimax-fullstack-dev`² |
 | 🐛 Bug 修复 | §6 调试 + §7 验证 | `systematic-debugging`, `verification-before-completion` |
 | 🔧 重构 | §2 + §3 + §7 | `regression-guard`, `code-review`² |
-| 🎨 前端 UI | §4 前端标准 | `baseline-ui`², `taste-skill`², `interaction-completeness`² |
+| 🎨 前端 UI | §4 前端标准 | `baseline-ui`², `taste-skill`², `interaction-completeness`², `minimax-frontend-dev`² |
 | 📝 文档更新 | §8 文档工程 | `docs-writer`², `docs-changelog`² |
 | 🧹 维护巡检 | §7 + §8 | `harness-gc`³, `dead-code-sweeper`³, `agent-eval`³ |
 | 🔄 上下文交接 | §9 窗口守护 | `/handoff` 工作流 |
