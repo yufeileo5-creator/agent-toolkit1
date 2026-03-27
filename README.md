@@ -5,6 +5,23 @@
 
 ---
 
+## 🚀 极速安装 (Quick Start One-Liner)
+
+无论你是在新电脑开荒，还是分享给新同事，只需在终端运行下方的 **一行命令**，即可全自动实现旧版备份，并从云端拉取整套神级战甲覆盖当前系统：
+
+**👉 Windows (PowerShell):**
+```powershell
+iwr -useb https://raw.githubusercontent.com/yufeileo5-creator/agent-toolkit1/main/install.ps1 | iex
+```
+
+**👉 Mac / Linux (Bash):**
+```bash
+curl -fsSL https://raw.githubusercontent.com/yufeileo5-creator/agent-toolkit1/main/install.sh | bash
+```
+> 行星级同步：只要提示“安装完成”，重启 IDE 即代表你新电脑已接管最新的 93 个大厂私有技能与防爆破核心规则！
+
+---
+
 ## 📋 这是什么？
 
 这是一套 **AI 开发 Agent 的全局知识底座**，包含：
