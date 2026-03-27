@@ -141,7 +141,7 @@ Types → Config → Core → Plugin → UI
 
 - **完整方案 (Root)**: 复杂功能设计必须沉淀在 `docs/plans/` 的独立切片文件中（如 `FEAT-xxx.md`），并在 `PLANS.md` 中注册索引，避免单体文件膨胀及重度 Merge Conflicts。
 - **阶段执行简报 (Artifact)**: 当前对话的临时实施计划对应 artifact 中的 `implementation_plan.md`。为避免跨交接后成为信息孤岛，其内部大标题必须命名为 `# Execution Brief — [当前子阶段]`，且**必须**在顶部提供返回 `PLANS.md` 对应章节的 Markdown 链接（例如 `> 📋 完整方案: [PLANS.md > 章名](file:///.../PLANS.md#...)`）。
-- **原子拆解 (Micro-Tasking)**: 严禁在 `implementation_plan.md` 中写出粗粒度的大型任务包。任何一个 Checkbox 的工作量必须拆解尽到【单一组件级别】或【不超过 3 个文件修改】，每个切片任务必须能在本地独立通过编译。
+- **隔离域与原子拆解 (Scoped Context & Micro-Tasking)**: 严禁写出粗粒度的大型任务包。任何一个 Checkbox 必须拆解尽到【单一组件级别】（不超过 3 个文件修改）。执行该原子任务时，AI 必须戴上“认知遮罩”，绝对禁止盲目扫描读取与之无关的同级模块代码，保持上下文极其纯净，模拟 Sub-Agent 的零干扰性。
 - **重建机制 (Session Hydration) [🌟解决 Plan 存在感不高/找不到的问题]**: 由于 Artifacts（如 \`implementation_plan.md\`）不跨对话共享，**任何 AI 在 Handoff 后进入新对话，若检测到活跃计划切片，第一步必须主动**向上拉取该切片任务，在侧边栏重新写入 `implementation_plan.md`，以此恢复计划的存在感。
 - **收尾反写 (Write-back)**: 在功能交付或准备执行 `/handoff` 前，Agent **必须**将当前 `implementation_plan.md` 中的完成状态（`[x]`）与执行结论，全量同步反写回具体分支计划文件（`docs/plans/`）中的执行跟踪面板，保持双向数据一致。
 - **异脑交接 (Cross-Agent ADR Handoff)**: 接手涉及其他模块的新 Feature 时，不仅要读计划，**第一步必须强制加载查阅**该模块遗留的 `docs/adr/` 决策记录或相关 Handoff 简报，实现 AI 到 AI 的契约交接。
