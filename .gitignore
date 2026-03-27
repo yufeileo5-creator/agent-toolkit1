@@ -18,3 +18,15 @@ GEMINI - 副本.txt
 # 技能描述的临时翻译文件
 antigravity/skills/desc_list.json
 antigravity/skills/desc_translated.json
+
+# 系统运行缓存与会话数据 (Protobuf histories, states, etc)
+antigravity/conversations/
+antigravity/annotations/
+antigravity/implicit/
+antigravity/code_tracker/
+antigravity/context_state/
+antigravity/html_artifacts/
+antigravity/playground/
+antigravity/prompting/
+antigravity/knowledge/
+_versions/
