@@ -1,0 +1,38 @@
+// ─── 插件入口模板 ───
+// 使用方式：复制此模板到 src/plugins/{plugin-id}/index.ts
+
+import type { Plugin, PluginContext } from '@/core/types';
+import manifest from './manifest';
+
+const {{PLUGIN_VAR_NAME}}: Plugin = {
+  manifest,
+
+  activate(context: PluginContext) {
+    // TODO: 实现插件逻辑
+
+    // 1. 监听钩子（可选）
+    // context.hooks.tap('some:hook', '{{PLUGIN_ID}}', (data) => { ... });
+
+    // 2. 注册命令（可选）
+    // context.commands.register('{{PLUGIN_ID}}:action', {
+    //   execute: (payload) => { ... },
+    //   undo: () => { ... },
+    // });
+
+    // 3. 注入 UI 组件（可选）
+    // context.slots.inject('main-content', {
+    //   id: '{{PLUGIN_ID}}-widget',
+    //   component: MyComponent,
+    //   order: 50,
+    // });
+
+    // 4. 上报健康
+    context.health.report('{{PLUGIN_ID}}', 'healthy');
+  },
+
+  deactivate() {
+    // TODO: 清理资源
+  },
+};
+
+export default {{PLUGIN_VAR_NAME}};
