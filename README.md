@@ -1,75 +1,81 @@
-# 🛡️ Agent Toolkit (Harness Engineering Repository)
+# Antigravity Agent Toolkit (Harness Config Repository)
 
-> 由 `/sync-harness` 工作流于远端执行时全自动动态生成。
+> 🕒 **Last Synchronized:** 2026-04-04
+> 🤖 **Maintained By:** Antigravity AI Agent
 
-欢迎使用本定制化 **Harness Engineering** 环境库。本仓库是您的 Agentic IDE（基于 Antigravity 框架）的“外置超大大脑”。这里封装着强约束保护协议、先进的 P2 重构工作流以及 MiniMax 官方注入的顶级多模态能力矩阵。
+This repository contains the global configurations, skills, and workflows for the Antigravity Agent ecosystem. It serves as a centralized "Harness" that can be quickly cloned and deployed to any new machine or environment.
 
----
+## 🛠️ Auto-Installers Deployment
 
-## ⚡ 极速装机指南 (1-Second Bootstrapping)
+You can instantly bootstrap your Antigravity environment by running one of the provided scripts.
+This will copy all the rules, skills, and templates to your local `~/.gemini/antigravity/` directory.
 
-只要您在新电脑 Clone 了本仓库，**无需手动翻阅任何隐秘系统目录，也无需对照路径进行迁移**。双击对应平台的安装脚本，1 秒钟即可完成满血复活部署：
+- **Windows:** Right-click `install.ps1` and run with PowerShell, or run `.\install.ps1` in the terminal.
+- **Mac/Linux:** Run `bash install.sh` or `./install.sh` in the terminal.
 
-- **Windows 用户**: 在 PowerShell 运行 `.\install.ps1`
-- **Mac/Linux 用户**: 在终端运行 `bash ./install.sh`
+## 🧠 Core Design Rules & Architecture
 
-执行完毕后，所有规则、工作流和海量外挂模块均已注入当地系统的 `~/.gemini/antigravity/` 深层目录，Agent 即刻拥有上帝视角功能。
+This toolkit heavily relies on the global system rules (`GEMINI.md`) and a layered defense logic:
+1. **Requirements Completion Protocol (需求补全):** AI acts as a Requirements Officer, asking clarifying questions before executing any ambiguous instructions.
+2. **Feasibility Checks & SDD:** Complex features enforce a feasibility check and Software Design Document (`implementation_plan.md`) approval before coding.
+3. **P.U.A Engine:** Prevents the AI from giving up prematurely.
+4. **Data Structure Protocol (DSP) & Architecture:** Forces AI to check `.dsp/graph.json` or architectural diagrams and keep module boundaries clean.
 
----
+## 🧰 Skill Catalog (技能矩阵)
 
-## 🧩 技能矩阵册 (Skill Catalog)
+Skills are separated into three tiers to prevent LLM attention dilution.
 
-遵循“防止注意力污染”三层原则架构的精编模块。
+### Tier 1 (Core Skills) - Always Loaded
+| Skill Name | 功能描述 |
+| --- | --- |
+| `feasibility-check` | **可行性审查**：强制审查新功能的技术与架构可行性，拒绝执行不可行需求并提供替代方案。 |
+| `plugin-dev` | **插件开发**：AI 编写新功能插件的标准指南，包含生命周期和注册规范。 |
+| `pua` | **反摆烂引擎**：当 AI 尝试放弃、盲目重试或让用户自己操作时，强制触发穷尽方案逻辑。 |
+| `regression-guard` | **回归守卫**：修改现有代码时强制触发的功能防破坏系统（含 Diff 推导与测试）。 |
+| `sdd-plan` | **规格驱动开发**：强制要求在编码前进行详细的任务切片设计和审批。 |
+| `systematic-debugging` | **系统化调试**：解决 Bug 时的四段式诊断法则，禁止盲目依靠直觉打补丁。 |
+| `verification-before-completion` | **验证后交付**：AI 宣称任务完成前，必须附带自动化测试或命令行运行通过的日志证据。 |
 
-### 📌 Tier 1: 系统常驻层 (全局防火墙)
-> 大模型在任何对话的每一轮交互中，都**被动且强制背负**这些铁则。主要负责防线守卫和工程纪律。
+### Tier 2 (On-Demand Skills) - Loaded when needed
+| Skill Name | 功能描述 |
+| --- | --- |
+| `baseline-ui` | 提供 UI 基础组件库和极简设计语言的审美基线指导。 |
+| `code-review` | 自动审查代码质量、架构合规度与可维护性。 |
+| `data-structure-protocol` | 针对特定数据结构的存储、读取和修改的标准化契约系统。 |
+| `docs-changelog` | 梳理和生成项目的自动变更更新日志（CHANGELOG）。 |
+| `docs-writer` | 自动生成、维护及校验研发文档和 API 技术手册。 |
+| `feature-tracer` | 分析及追踪特定功能模块从入口到内核的全链路实现。 |
+| `interaction-completeness` | 前端交互五态（加载、空、成功、报错、禁用）的完整性审查。 |
+| `log-compressor` | 终端日志压缩清洗工具，应对过长报错日志，提取 Root Cause。 |
+| `long-form-content` | 长文本和文章类型内容的深度生成排版。 |
+| `minimax-frontend-dev` / `minimax-fullstack-dev` | 前端或全栈开发专项极速编码规约指引。 |
+| `minimax-multimodal-toolkit` | 多模态输入转 UI 和功能的专用套件。 |
+| `performance-auditor` | 前端渲染与后端接口的性能诊断审核专家。 |
+| `pr-creator` | Pull Request 生成助手，含标准模板和 Diff 摘要。 |
+| `react-best-practices` | 基于 Hooks 的 React 现代写法守护。 |
+| `skill-creator` | Agent 自我延展，用于帮用户编写最新的技能卡片。 |
+| `taste-skill` | 负责微动画和玻璃拟物化等高级交互设计评估。 |
+| `test-driven-development` | TDD 红绿循环测试驱动开发强制准则。 |
+| `webapp-testing` | 端到端 Web UI 验收测试。 |
 
-| 技能 | 类别 | 说明 |
-|------|------|------|
-| `feasibility-check` | 防护 | 强制可行性审查。无法实现的需求亮红灯，禁止盲目碰壁，提备选方案。 |
-| `plugin-dev` | 基建 | 插件开发框架范式。提供标准注册协议与严格代码映射架构。 |
-| `pua` | 纠偏 | 终极防摆烂引擎。多次失败或陷入僵局退缩时自动触发穷尽排查。 |
-| `regression-guard` | 防护 | 强制回归守卫。修改已有代码时拦截并检查衍生的连锁崩溃隐患。 |
-| `sdd-plan` | 基建 | 规格驱动 (SDD) 开发主流程。禁止裸敲代码，强行规范《实施筹划书》。 |
-| `systematic-debugging` | 纠偏 | 严打盲目重试。遭遇 Bug 时强行激活思维推导和错误链溯源修复策略。 |
-| `verification-before...` | 验证 | 证伪前置。宣称功能“搞定”前，强行启动本地编译或测试进行证据录入。 |
+### Tier 3 (Archived Skills) - Restored Manually
+| Skill Name | 功能描述 |
+| --- | --- |
+| `agent-eval` | Agent 能力自评与表现回顾组件。 |
+| `canvas-design` | Canvas 编辑器和拖拽业务的绘图架构设计。 |
+| `dead-code-sweeper` | 僵尸代码自动扫描及清理卫士。 |
+| `harness-gc` | 针对项目的全局依赖垃圾回收和状态重置。 |
+| `mcp-builder` | 辅助构建 MCP (Model Context Protocol) 扩展服务器。 |
+| `pm-xxx` | 虚拟产品经理场景下的语法增强/虚拟数据集生成/SQL构建等组件。 |
+| `pdf` / `playwright-skill` | 独立领域的分析测试技能。 |
 
-### 🏹 Tier 2: 按需挂载层 (生产力外援)
-> 大模型**只有识别到特定任务**（如：在写前端、在做排版、在修文档）时，才会像特种部队呼叫空中支援一样，自发抓取这些庞大的操作准则进入视野。
+## 🔄 Workflows Guide (工作流指南)
 
-| 技能 | 类别 | 说明 |
-|------|------|------|
-| `minimax-frontend-dev` | 🎨 MiniMax | 顶级前端开发特调。囊括电影级帧动画、GSAP/Three.js、AIDA文案架构与高级布局。 |
-| `minimax-fullstack-dev`| 💻 MiniMax | 全栈架构护航。负责后端路由、安全接口和数据持久化的严苛构建检查清单。 |
-| `minimax-multimodal` | 📹 MiniMax | 多模态内容生成矩阵。涵盖调用 API 生成视频、图生图、PPT与TTS声音合成的手册。\n**(注: 上述 MiniMax 技能库由官方授权原厂迁移植入)** |
-| `baseline-ui` | 🎨 UI 审美 | 拒绝廉价组件感。强制实施极简基线审美标准，取缔默认色。 |
-| `taste-skill` | 🎨 UI 审美 | 对界面的精细高级感重塑。包含圆角、阴影弥散与光效把控的黄金比例法则。 |
-| `interaction-comp...`| 🎨 UI 交互 | 无死角五态补全检查器。空/加载/错误/成功/禁用 状态的交互防漏网系统。 |
-| `long-form-content` | 📄 文档 | 长图文宣发阵列提取器。专业切分、分析与产出大规模海报 DOM 框架范式。 |
-| `react-best-practices` | ⚛️ 代码 | React 最新实战准则。严抓渲染性能、Hooks 防误用规范。 |
-| `test-driven-dev` | 🧪 TDD | 标准测试驱动协议。红灯-绿灯-重构的铁律强制践行器。 |
-| `webapp-testing` | 🧪 TDD | 针对 Web App 的端到端与 DOM 层级测试护航范本。 |
-| `code-review` | 🔍 审计 | 重大变现前的静态审计门禁。 |
-| `pr-creator` | 🚀 流水线 | 严丝合缝的规范化开源 PR (Pull Request) 构造生成器。 |
-| `docs-writer` & `docs-changelog`| 📝 文档 | 标准化全栈 Markdown 架构长文本与版本变迁日志编写指导。 |
-| `data-structure-protocol` | 🗃️ 架构 | 深入追踪 `.dsp/graph.json`，防护项目级图谱脉络免遭循环依赖破坏。 |
-| `skill-creator` | ⚙️ 原创 | 元技能超级创造器！遵循高阶设计模式指导大模型萃取繁复的 CheckList 重写为优质 Skill。 |
-
-### 🗄️ Tier 3: 归档冷库 (历史遗迹)
-> 因版本更迭暂时不用的旧有经验准书集合，隔离且不生效。
-
----
-
-## 🏎️ 工作流生态枢纽 (Workflows)
-
-您在编辑器直接敲 `/xxx` 即可呼出的原生宏任务（Workflows）：
-
-- **`/sync-harness`**：将本地的 `skills` / `workflows` / `templates` 热脱敏后全自动发车推送到远端这片配置库（也就是打出您现在看到的这段文档）。
-- **`/handoff`**：会话脑容量不足崩溃前的跨窗口“上下文急救包传递协议”（Session Hydration）。通过摘要推导法平滑迁移到新对话。
-- **`/doc-sync-check`**：收工下课前的必查作业表。校准架构图与 Map 字典是否断档。
-- **`/plan`**：写码前绝不让 LLM 碰键盘的强制草图审批。
-- **`/version`**：提交代码 + 版本打 Tag 一条龙处理。
-- **`/layout-engine-check`**：界面排版核心算法变更前特有的定制级防暴雷检测清单。
-
----
-> 🤖 **Automated Status** | 本配置库已被设定为“信息脱敏（Agnostic）”，绝无单机特定绝对路径 `C:\` 与特征，请放心跨平台流传与开箱即用。
+| Workflow Command | Description | Trigger Scenario |
+| --- | --- | --- |
+| `/handoff` | **上下文交接工作流**。生成包含全链路进度、重大架构决策和未决问题的交接文档。 | 当会话过长大模型性能下降，或里程碑完成需开启新窗口时。 |
+| `/plan` | **计划模式工作流**。强制开启 `implementation_plan.md` 的构建设计阶段。 | 接受到大型、发散度高、涉及多个核心功能时。 |
+| `/doc-sync-check` | **文档同步检查**。检查 Feature-map、Graph 和 Changelog 是否更新。 | 一段重要的功能交付和验收完成后。 |
+| `/layout-engine-check` | **排版引擎检查清单**。专门针对渲染引擎层的功能防线。 | UI 核心或图层管理逻辑发生变动时。 |
+| `/version` | **版本管理工作流**。快速打包、提交、打标签推送代码。 | 确认功能稳定上线或交付前。 |
+| `/sync-harness` | **全局配置互斥同步同步工作流**。将本地的 Prompt、Skills 和 Templates 更新到这个中央仓库。 | 技能群或工作流发生重大改进时。 |

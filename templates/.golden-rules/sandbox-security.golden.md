@@ -8,7 +8,7 @@
 ## 文件操作边界
 
 - [GR-S001] **Agent 只能修改项目目录内的文件**
-  → 检查方法: 所有 write_to_file / replace_file_content 的目标路径必须在 `C:\AgentCode\框架\` 或 Agent 全局配置目录内
+  → 检查方法: 所有 write_to_file / replace_file_content 的目标路径必须在 `<项目根目录>\` 或 Agent 全局配置目录内
   → 违规信号: Agent 修改了 `C:\Windows\`、`C:\Program Files\` 等系统目录
   → 修复方式: 限制文件操作的目标路径
   → 来源: Harness Engineering — Sandbox 组件

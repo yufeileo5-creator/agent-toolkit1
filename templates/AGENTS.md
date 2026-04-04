@@ -26,40 +26,10 @@ npm run server
 - **包管理器**: npm（锁文件 `package-lock.json`）
 - **环境变量**: 复制 `.env.example` → `.env`，填入 API Key
 
-## 3. 测试协议
+> 💡 **协议下沉说明 (Agnostic Shift)**: 测试协议、代码风格、PR 指南及 Done 定义等微观具体规则，现已彻底从全局环境剥离。请通过下文的“渐进式技能路由”按需查阅对应的 `_on-demand` 技能，杜绝占用基础注意力的“粉红大象”效应。
 
-```bash
-# 运行全部测试
-npx vitest run
 
-# 监听模式
-npx vitest
-
-# 单文件测试
-npx vitest run src/plugins/canvas-engine/canvas-commands.test.ts
-```
-
-- **框架**: Vitest
-- **覆盖**: 核心模块（command-bus、hook-registry、canvas-commands）
-- **约定**: 新功能必须先写测试（TDD），测试文件与源文件同目录
-
-## 4. 代码风格
-
-- **语言**: TypeScript（严格模式）
-- **禁用 `any`**: 所有类型必须显式声明
-- **函数长度**: 核心逻辑 ≤ 40 行，常规文件 ≤ 300 行
-- **命名**: camelCase（变量/函数）、PascalCase（类型/接口/组件）
-- **导入顺序**: 外部库 → 核心模块 → 插件模块 → 相对路径
-- **注释语言**: 中文 Docstring，解释"为什么"而非"做什么"
-
-## 5. PR 指南
-
-- **提交格式**: Conventional Commits（`feat:`, `fix:`, `refactor:`, `docs:`, `test:`）
-- **严禁直推 `main`**: 必须通过 PR
-- **PR 描述**: 使用仓库模板，包含变更说明、影响范围、测试结果
-- **触发 `pr-creator` 技能**: 创建 PR 时自动遵循
-
-## 6. 项目结构与关键入口
+## 3. 项目结构与关键入口
 
 ```
 <项目根目录>/
@@ -96,7 +66,7 @@ npx vitest run src/plugins/canvas-engine/canvas-commands.test.ts
 └── CHANGELOG.md                 # 变更日志
 ```
 
-## 7. 分层约束（铁律）
+## 4. 分层约束（铁律）
 
 ```
 Types → Config → Core → Plugin → UI
@@ -115,29 +85,14 @@ Types → Config → Core → Plugin → UI
 - **黄金准则**: `.golden-rules/architecture.golden.md` 包含可检查的具体规则
 - **离线知识外脑 (Local RAG)**: 当调用复杂框架（如特定版本的 Fabric.js、第三方 C++ 侧图形库等）且记忆模糊时，绝对禁止凭空猜测或幻觉捏造 API。必须强制使用文件搜索工具优先检索 `docs/knowledge/` 目录下的官方快照。如果在里面查不到，立即挂起并请求人类喂送文档快照后方可下笔。
 
-## 8. Done 定义
-
-一个功能/修复被视为"完成"需要满足：
-
-- [ ] 代码通过 TypeScript 编译（`tsc --noEmit`）
-- [ ] 所有相关测试通过（`npx vitest run`）
-- [ ] 不引入新的 lint 错误
-- [ ] 架构分层未被破坏（无反向依赖）
-- [ ] `docs/feature-map.md` 已更新（如涉及新功能）
-- [ ] `CHANGELOG.md` 已追加（如涉及用户可感知变更）
-- [ ] `.dsp/graph.json` 已同步（如涉及模块新增/删除/依赖变更）
-- [ ] DSP 黄金准则检查通过
-- [ ] **流水线排异 (CI/CD Verification)**: 若有远端门禁，提 PR 前必须查阅线上的 GitHub Actions/GitLab CI 报错日志确认绿灯（不只满足于本地 `npm run run test` 通过）。
-- [ ] **视觉盲区验收 (Visual Handoff)**: 针对界面或样式（CSS/UI Component）的改动，测试通过不代表完成。Agent 必须主动暂停任务，要求人类开发者进行走查（Visual Regression），得到人类明确的验收许可后方可将该切片任务记为已完成。
-
-## 9. 安全注意事项
+## 5. 安全注意事项
 
 - **API Key**: 严禁硬编码，必须通过 `.env` 注入，`.env` 已在 `.gitignore` 中
 - **CORS**: BFF 层通过 `BFF_CORS_ORIGIN` 环境变量控制
 - **速率限制**: AI 接口有 `express-rate-limit`（20次/15分钟）
 - **文件操作边界**: Agent 只能修改项目目录内的文件
 
-## 10. 规划文档指引（双层计划追踪）
+## 6. 规划文档指引（双层计划追踪）
 
 - **完整方案 (Root)**: 复杂功能设计必须沉淀在 `docs/plans/` 的独立切片文件中（如 `FEAT-xxx.md`），并在 `PLANS.md` 中注册索引，避免单体文件膨胀及重度 Merge Conflicts。
 - **阶段执行简报 (Artifact)**: 当前对话的临时实施计划对应 artifact 中的 `implementation_plan.md`。为避免跨交接后成为信息孤岛，其内部大标题必须命名为 `# Execution Brief — [当前子阶段]`，且**必须**在顶部提供返回 `PLANS.md` 对应章节的 Markdown 链接（例如 `> 📋 完整方案: [PLANS.md > 章名](file:///.../PLANS.md#...)`）。
@@ -148,7 +103,7 @@ Types → Config → Core → Plugin → UI
 - **架构决策**: 在 `docs/adr/` 创建 ADR 文件
 - **失败教训**: 沉淀到 `.golden-rules/` 或更新本文件
 
-## 11. 渐进式规则路由（Progressive Disclosure）
+## 7. 渐进式规则路由（Progressive Disclosure）
 
 > 技能按三层管理（Tier 1 常驻 / Tier 2 按需 / Tier 3 归档），避免注意力稀释。
 
@@ -156,17 +111,17 @@ Types → Config → Core → Plugin → UI
 
 | 层级 | 路径 | 数量 | 加载时机 |
 |------|------|------|---------|
-| **Tier 1** | `C:\Users\Leo\.gemini\antigravity\skills\` | 7 | 每轮系统自动加载 |
-| **Tier 2** | `C:\Users\Leo\.gemini\antigravity\skills\_on-demand\` | 16 | 特定任务时按需主动读取 |
-| **Tier 3** | `C:\Users\Leo\.gemini\antigravity\skills\_archived\` | 11 | 需要时手动恢复 |
+| **Tier 1** | `~\.gemini\antigravity\skills\` | 7 | 每轮系统自动加载 |
+| **Tier 2** | `~\.gemini\antigravity\skills\_on-demand\` | 18 | 特定任务时按需主动读取 |
+| **Tier 3** | `~\.gemini\antigravity\skills\_archived\` | 11 | 需要时手动恢复 |
 
 ### 任务类型 → 核心规则映射
 
 | 任务类型 | 必须优先加载的规则章节 | 按需加载的技能 |
 |---------|---------------------|--------------|
 | 🆕 新功能开发 | §2 架构守护 + §3 TDD | `sdd:plan`, `plugin-dev`, `feasibility-check`, `minimax-fullstack-dev`² |
-| 🐛 Bug 修复 | §6 调试 + §7 验证 | `systematic-debugging`, `verification-before-completion` |
-| 🔧 重构 | §2 + §3 + §7 | `regression-guard`, `code-review`² |
+| 🐛 Bug 修复 | §6 调试 + §7 验证 | `systematic-debugging`, `log-compressor`², `verification-before-completion` |
+| 🔧 重构 | §2 + §3 + §7 | `regression-guard`, `performance-auditor`², `code-review`² |
 | 🎨 前端 UI | §4 前端标准 | `baseline-ui`², `taste-skill`², `interaction-completeness`², `minimax-frontend-dev`² |
 | 📝 文档更新 | §8 文档工程 | `docs-writer`², `docs-changelog`² |
 | 🧹 维护巡检 | §7 + §8 | `harness-gc`³, `dead-code-sweeper`³, `agent-eval`³ |

@@ -1,20 +1,23 @@
 #!/bin/bash
-echo "🚀 Bootstrapping Harness Engineering Environment (Mac/Linux)..."
+set -e
 
-# 获取当前脚本所在目录
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 TARGET_DIR="$HOME/.gemini/antigravity"
-
-# 创建目标外层目录
 mkdir -p "$TARGET_DIR"
 
-echo "Copying Skills..."
-cp -r "$DIR/skills" "$TARGET_DIR/" || echo "Warning: failed to copy skills"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "Copying Workflows..."
-cp -r "$DIR/workflows" "$TARGET_DIR/" || echo "Warning: failed to copy workflows"
+echo "Installing Antigravity Harness to $TARGET_DIR ..."
 
-echo "Copying Templates..."
-cp -r "$DIR/templates" "$TARGET_DIR/" || echo "Warning: failed to copy templates"
+for folder in "skills" "workflows" "templates"; do
+    if [ -d "$SCRIPT_DIR/$folder" ]; then
+        cp -R "$SCRIPT_DIR/$folder" "$TARGET_DIR/"
+        echo "Copied $folder successfully."
+    fi
+done
 
-echo "✅ Bootstrap Complete! Your Agent is fully armed with the global Harness tools."
+if [ -f "$SCRIPT_DIR/GEMINI.md" ]; then
+    cp "$SCRIPT_DIR/GEMINI.md" "$HOME/.gemini/GEMINI.md"
+    echo "Copied GEMINI.md successfully."
+fi
+
+echo "Installation Complete! Bootstrap ready."
