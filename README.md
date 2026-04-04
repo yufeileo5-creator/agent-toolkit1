@@ -1,81 +1,83 @@
-# Antigravity Agent Toolkit (Harness Config Repository)
+# Antigravity 智能体全局工具箱 (Harness 配置中央仓库)
 
-> 🕒 **Last Synchronized:** 2026-04-04
-> 🤖 **Maintained By:** Antigravity AI Agent
+> 🕒 **最后同步时间:** 2026-04-04
+> 🤖 **维护者:** Antigravity AI Agent
 
-This repository contains the global configurations, skills, and workflows for the Antigravity Agent ecosystem. It serves as a centralized "Harness" that can be quickly cloned and deployed to any new machine or environment.
+本仓库包含了 Antigravity Agent 生态系统的全局配置、技能矩阵和自动化工作流。它作为一个集中式的“脚手架 (Harness)”，可以被非常便捷地克隆并一键部署到任何一台新机器或新环境中。
 
-## 🛠️ Auto-Installers Deployment
+## 🛠️ 一键装机与部署
 
-You can instantly bootstrap your Antigravity environment by running one of the provided scripts.
-This will copy all the rules, skills, and templates to your local `~/.gemini/antigravity/` directory.
+只需运行仓库内提供的安装脚本，即可瞬间完成 Antigravity 环境自举 (Bootstrap)。
+脚本会自动将本仓库中的全局规则、技能与模板无缝覆盖到您本机的 `~/.gemini/antigravity/` 级联目录下。
 
-- **Windows:** Right-click `install.ps1` and run with PowerShell, or run `.\install.ps1` in the terminal.
-- **Mac/Linux:** Run `bash install.sh` or `./install.sh` in the terminal.
+- **Windows 系统:** 右键点击 `install.ps1` 并选择“使用 PowerShell 运行”，或者在终端中执行 `.\install.ps1`。
+- **Mac / Linux 系统:** 在终端中运行 `bash install.sh` 或 `./install.sh`。
 
-## 🧠 Core Design Rules & Architecture
+## 🧠 核心设计规则与系统架构防线
 
-This toolkit heavily relies on the global system rules (`GEMINI.md`) and a layered defense logic:
-1. **Requirements Completion Protocol (需求补全):** AI acts as a Requirements Officer, asking clarifying questions before executing any ambiguous instructions.
-2. **Feasibility Checks & SDD:** Complex features enforce a feasibility check and Software Design Document (`implementation_plan.md`) approval before coding.
-3. **P.U.A Engine:** Prevents the AI from giving up prematurely.
-4. **Data Structure Protocol (DSP) & Architecture:** Forces AI to check `.dsp/graph.json` or architectural diagrams and keep module boundaries clean.
+本工具箱高度依赖于全局系统规则 (`GEMINI.md`)，并内置了坚固的分层防御逻辑：
+1. **需求补全官协议 (Requirements Completion Protocol):** AI 收到含糊需求时严禁直接执行，必须先提问查缺补漏、对齐验收标准。
+2. **可行性审查与规格驱动开发 (SDD):** 复杂特征在动手写码前，会强制经过技术审查和设计方案 (`implementation_plan.md`) 的人工签批流程。
+3. **反摆烂引擎 (P.U.A Engine):** 当 AI 试图放弃、让用户自己手动解决或陷入死循环时强制触发，要求穷尽一切方法破局。
+4. **数据图谱契约 (DSP & Architecture):** 强制要求 AI 探查项目体系的 `.dsp/graph.json` 结构，严守代码依赖的分层边界。
 
-## 🧰 Skill Catalog (技能矩阵)
+## 🧰 技能矩阵 (Skill Catalog)
 
-Skills are separated into three tiers to prevent LLM attention dilution.
+为防止大语言模型因为提示词过长导致注意力稀释，本系统的技能被规划为了不同优先级梯队进行按需加载：
 
-### Tier 1 (Core Skills) - Always Loaded
-| Skill Name | 功能描述 |
+### Tier 1 (核心梯队) - 系统每次对话自动加载
+| 技能文件架构 | 功能描述 |
 | --- | --- |
-| `feasibility-check` | **可行性审查**：强制审查新功能的技术与架构可行性，拒绝执行不可行需求并提供替代方案。 |
-| `plugin-dev` | **插件开发**：AI 编写新功能插件的标准指南，包含生命周期和注册规范。 |
-| `pua` | **反摆烂引擎**：当 AI 尝试放弃、盲目重试或让用户自己操作时，强制触发穷尽方案逻辑。 |
-| `regression-guard` | **回归守卫**：修改现有代码时强制触发的功能防破坏系统（含 Diff 推导与测试）。 |
-| `sdd-plan` | **规格驱动开发**：强制要求在编码前进行详细的任务切片设计和审批。 |
-| `systematic-debugging` | **系统化调试**：解决 Bug 时的四段式诊断法则，禁止盲目依靠直觉打补丁。 |
-| `verification-before-completion` | **验证后交付**：AI 宣称任务完成前，必须附带自动化测试或命令行运行通过的日志证据。 |
+| `feasibility-check` | **可行性审查**：强制审查大需求在当前技术栈下的可行性，拒绝无脑执行，并主动寻找替代方案。 |
+| `plugin-dev` | **插件开发规范**：AI 在尝试进行全栈插件化编写时的主动引导流程。 |
+| `pua` | **反摆烂引擎**：遇到多次失败或卡住时，鞭策 AI 切换思路进行极限推演。 |
+| `regression-guard` | **回归防卫防线**：核心文件变更前进行依赖树推导，保护旧代码不被新功能击穿。 |
+| `sdd-plan` | **规格驱动开发**：控制 AI 在大型改动前自动进入子任务拆解审批。 |
+| `systematic-debugging` | **系统化故障排查**：取代靠猜盲复和玄学打补丁的四阶段标准诊断流程。 |
+| `verification-before-completion` | **闭环前验证**：严禁 AI 在修复问题后“声称修好”，要求举证（拿出正确执行的后台日志或终端输出）。 |
 
-### Tier 2 (On-Demand Skills) - Loaded when needed
-| Skill Name | 功能描述 |
+### Tier 2 (按需梯队) - 发生特定任务时动态读取
+| 技能文件架构 | 功能描述 |
 | --- | --- |
-| `baseline-ui` | 提供 UI 基础组件库和极简设计语言的审美基线指导。 |
-| `code-review` | 自动审查代码质量、架构合规度与可维护性。 |
-| `data-structure-protocol` | 针对特定数据结构的存储、读取和修改的标准化契约系统。 |
-| `docs-changelog` | 梳理和生成项目的自动变更更新日志（CHANGELOG）。 |
-| `docs-writer` | 自动生成、维护及校验研发文档和 API 技术手册。 |
-| `feature-tracer` | 分析及追踪特定功能模块从入口到内核的全链路实现。 |
-| `interaction-completeness` | 前端交互五态（加载、空、成功、报错、禁用）的完整性审查。 |
-| `log-compressor` | 终端日志压缩清洗工具，应对过长报错日志，提取 Root Cause。 |
-| `long-form-content` | 长文本和文章类型内容的深度生成排版。 |
-| `minimax-frontend-dev` / `minimax-fullstack-dev` | 前端或全栈开发专项极速编码规约指引。 |
-| `minimax-multimodal-toolkit` | 多模态输入转 UI 和功能的专用套件。 |
-| `performance-auditor` | 前端渲染与后端接口的性能诊断审核专家。 |
-| `pr-creator` | Pull Request 生成助手，含标准模板和 Diff 摘要。 |
-| `react-best-practices` | 基于 Hooks 的 React 现代写法守护。 |
-| `skill-creator` | Agent 自我延展，用于帮用户编写最新的技能卡片。 |
-| `taste-skill` | 负责微动画和玻璃拟物化等高级交互设计评估。 |
-| `test-driven-development` | TDD 红绿循环测试驱动开发强制准则。 |
-| `webapp-testing` | 端到端 Web UI 验收测试。 |
+| `baseline-ui` | 提供 UI 基础组件调用的底层库支撑和最高审美基线指导。 |
+| `code-review` | 用于全面评估一段业务逻辑的规范、复杂度和可维护性水平。 |
+| `data-structure-protocol` | 针对特定结构体与数据流的增删改查进行抽象契约化的系统。 |
+| `docs-changelog` | 负责梳理变更细节，并全自动化更新项目的版本日志 (CHANGELOG)。 |
+| `docs-writer` | 用于深度分析并撰写项目的技术参考文档或接口文档手册。 |
+| `feature-tracer` | 分析及追踪特定功能模块从入口点击到核心内核的全链路溯源。 |
+| `interaction-completeness` | 前端组件和页面验收时，专门检核「加载、空白、禁用、报错、成功」五态完整性。 |
+| `log-compressor` | 智能日志浓缩器。针对终端极其长篇的报错能精准裁切并提取 Root Cause (根因)。 |
+| `long-form-content` | 帮助大语言模型构建起承转合、拥有优质排版的高级长文本大段文章输出。 |
+| `minimax-frontend-dev` / `fullstack-dev` | 前端或全栈专项速生开发的重装上阵指导规则。 |
+| `minimax-multimodal-toolkit` | 用户上传视觉草图到应用成型的转换与识别专业套件。 |
+| `performance-auditor` | 前后端的瀑布流网络请求性能与帧率审核卫士。 |
+| `pr-creator` | Pull Request 标准化标题、内容摘要及提交机器。 |
+| `react-best-practices` | 基于前沿 Hooks 与状态分离技巧的现代 React 严格守护规则。 |
+| `skill-creator` | 让 AI 自建 AI 技能：用于辅助编写和上架最新版技能卡片。 |
+| `taste-skill` | 用于掌控微动效 (Micro-animations) 和极简玻璃拟物化设计的高级品味评估官。 |
+| `test-driven-development` | 强制通过撰写断言红灯才能修改业务代码的 TDD 红绿开发流程。 |
+| `webapp-testing` | 对网页 Web 端执行涵盖所有组件的高级防拆毁测试。 |
 
-### Tier 3 (Archived Skills) - Restored Manually
-| Skill Name | 功能描述 |
+### Tier 3 (冷冻存档梯队) - 需要时可手动唤醒重装
+| 技能文件架构 | 功能描述 |
 | --- | --- |
-| `agent-eval` | Agent 能力自评与表现回顾组件。 |
-| `canvas-design` | Canvas 编辑器和拖拽业务的绘图架构设计。 |
-| `dead-code-sweeper` | 僵尸代码自动扫描及清理卫士。 |
-| `harness-gc` | 针对项目的全局依赖垃圾回收和状态重置。 |
-| `mcp-builder` | 辅助构建 MCP (Model Context Protocol) 扩展服务器。 |
-| `pm-xxx` | 虚拟产品经理场景下的语法增强/虚拟数据集生成/SQL构建等组件。 |
-| `pdf` / `playwright-skill` | 独立领域的分析测试技能。 |
+| `agent-eval` | 对 Agent 能力进行基准反思的阶段回顾组件。 |
+| `canvas-design` | Canvas 图形编辑器及拖拽业务的绘图渲染重逻辑设计指导。 |
+| `dead-code-sweeper` | 定时无情清除系统中闲置无用逻辑和死区（Zombie code）的自动化清理器。 |
+| `harness-gc` | 针对深水区环境垃圾堆积进行的全局环境状态和空间回收机制。 |
+| `mcp-builder` | 辅助对接各种高级 MCP 外部通信拓展服务器搭建的中间件说明。 |
+| `pm-xxx` | 系列套件：产品经理语法打磨/模拟假造大型演示用数据/数据库表结构定义套件等。 |
+| `pdf` / `playwright` | 对细分领域及抓取端等独立的专属专项分析应对。 |
 
-## 🔄 Workflows Guide (工作流指南)
+## 🔄 全局工作流说明 (Workflows)
 
-| Workflow Command | Description | Trigger Scenario |
+通过在对话中输入以 `/` 打头的工作流名字，可以直接向 AI 发起自动化链式的指令任务。
+
+| 工作流触发词 | 功能说明 | 使用时机 |
 | --- | --- | --- |
-| `/handoff` | **上下文交接工作流**。生成包含全链路进度、重大架构决策和未决问题的交接文档。 | 当会话过长大模型性能下降，或里程碑完成需开启新窗口时。 |
-| `/plan` | **计划模式工作流**。强制开启 `implementation_plan.md` 的构建设计阶段。 | 接受到大型、发散度高、涉及多个核心功能时。 |
-| `/doc-sync-check` | **文档同步检查**。检查 Feature-map、Graph 和 Changelog 是否更新。 | 一段重要的功能交付和验收完成后。 |
-| `/layout-engine-check` | **排版引擎检查清单**。专门针对渲染引擎层的功能防线。 | UI 核心或图层管理逻辑发生变动时。 |
-| `/version` | **版本管理工作流**。快速打包、提交、打标签推送代码。 | 确认功能稳定上线或交付前。 |
-| `/sync-harness` | **全局配置互斥同步同步工作流**。将本地的 Prompt、Skills 和 Templates 更新到这个中央仓库。 | 技能群或工作流发生重大改进时。 |
+| `/handoff` | **切片断点与跨域交接**。为防止模型由于对话历史过多而失智或降智，主动将核心方案与决策脉络提取浓缩成交接简报，以便您开新窗口满血继承。 | 当发觉回答开始智障、等待时间变得过长，或某个里程碑节点彻底做完时必须强制使用。 |
+| `/plan` | **计划模式审批引擎**。强制阻拦 AI 动手，先对全套需求进行结构性架构和技术设想论证审批。 | 当面对含有高不确定性、复杂结构组合以及大体量重组类需求时进行防御性评估。 |
+| `/doc-sync-check` | **快照同步检查员**。按条款对照检查项目的核心路线图和状态映射表是否产生了滞后。 | 每部署或完结一次重点改动周期后，梳理更新情况进行信息齐平。 |
+| `/layout-engine-check` | **核心画布防线检视**。针对含有深水区算法或绘图特性的核心算法层的防御测试核验机制。 | 在发生诸如拖拽算法、核心计算和布局变动等底层重构之后。 |
+| `/version` | **标签自动管理与发行打包**。根据规则快速提交所有文件变动、合并、标注快照 Tag 并安全推往云端仓。 | 当一个整体功能达到阶段性大满贯可运行版本时执行收口归档。 |
+| `/sync-harness` | **系统级内核中央网路同步**。负责将个人电脑本地打磨微调过的全套技能与母版规则网格式互斥更新并剥离硬编号后发送到本公共仓库。 | 当你个人对工具箱规则（GEMINI.md）或某些技能体系进行了重写补充并试图更新云端基座时触发。 |
